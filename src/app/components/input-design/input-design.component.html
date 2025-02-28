@@ -1,0 +1,44 @@
+<div class="app-container">
+  <header class="header">
+    <img src="assets/logo 1.svg" alt="Logo" class="logo" />
+  </header>
+
+  <div class="content">
+    <div class="button-group">
+      <button class="button" (click)="onAdd()">Add</button>
+      <button class="button" (click)="onReset()">Reset</button>
+    </div>
+
+    <input
+      type="file"
+      #fileInput
+      (change)="onFileSelected($event)"
+      accept=".xlsx"
+      style="display: none"
+    />
+
+    <div class="upload-container" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+      <div class="upload-box">
+        <svg
+          width="234"
+          height="234"
+          viewBox="0 0 234 234"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="upload-icon"
+        >
+          <rect width="234" height="234" fill="white" />
+          <path
+            d="M124.312 197.438V153.562H153.562L117 109.688L80.4375 153.562H109.688V197.438H73.125V197.072C71.8965 197.145 70.7265 197.438 69.4688 197.438C54.9233 197.438 40.9736 191.659 30.6884 181.374C20.4032 171.089 14.625 157.139 14.625 142.594C14.625 114.455 35.9044 91.5233 63.2093 88.3789C65.6033 75.8642 72.2834 64.5749 82.1005 56.4526C91.9177 48.3303 104.258 43.8828 117 43.875C129.743 43.882 142.086 48.329 151.906 56.4511C161.726 64.5732 168.408 75.8629 170.805 88.3789C198.11 91.5233 219.36 114.455 219.36 142.594C219.36 157.139 213.582 171.089 203.297 181.374C193.012 191.659 179.062 197.438 164.517 197.438C163.288 197.438 162.104 197.145 160.86 197.072V197.438H124.312Z"
+            fill="#AAAAAA"
+          />
+        </svg>
+        <div class="upload-text">
+          {{ selectedFileName ? selectedFileName : "Drop your file here" }}
+        </div>
+      </div>
+    </div>
+
+    <button class="send-button" (click)="onSend()" [disabled]="!selectedFile">Send</button>
+  </div>
+</div>

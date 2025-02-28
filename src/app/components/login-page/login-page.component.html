@@ -1,0 +1,50 @@
+<div class="login-page">
+  <header class="login-header">
+    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7b2e19437e9ab7a4d498aa749a7fafa45596bf5c" alt="Oficab Logo" class="company-logo" />
+  </header>
+
+  <main class="login-main">
+    <form class="login-form" (ngSubmit)="onSubmit()">
+      <div class="form-field">
+        <label for="userId" class="form-label">ID</label>
+        <div class="input-container">
+          <input
+            type="text"
+            id="userId"
+            name="userId"
+            [(ngModel)]="userId"
+            class="form-input"
+            placeholder="Enter your ID"
+            required
+            aria-required="true"
+          />
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="userPassword" class="form-label">Password</label>
+        <div class="input-container">
+          <input
+            type="password"
+            id="userPassword"
+            name="userPassword"
+            [(ngModel)]="userPassword"
+            class="form-input"
+            placeholder="Enter your password"
+            required
+            aria-required="true"
+          />
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn btn-login">Login</button>
+        <button type="reset" class="btn btn-reset" (click)="onReset()">Reset</button>
+      </div>
+    </form>
+  </main>
+
+  <div *ngIf="message" class="popup" [ngClass]="messageType">
+    {{ message }}
+  </div>
+</div>
